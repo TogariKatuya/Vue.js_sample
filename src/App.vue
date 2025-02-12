@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 
-const count = ref(2)
-const count2 = ref(4)
+const count = ref(0)
 </script>
 <template>
-  <div>{{ count + count2 }}</div>
-  <div>{{ count > 3 ? 'Yes' : 'No' }}</div>
-  <div>{{ count }}</div>
+  <p>{{ count }}</p>
+  <div @click="count++">
+    <button @click="$event.stopPropagation()">button</button>
+  </div>
+  <a href="https://vuejs.org" @click.prevent="$event.preventDefault()">Vue.js</a>
 </template>
